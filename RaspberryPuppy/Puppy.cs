@@ -31,8 +31,9 @@
             Sounds = sounds;
         }
 
-
-
-
+        public override string ToString()
+        {
+            return $"{{{nameof(ID)}={ID}, {nameof(Name)}={Name}, {nameof(Race)}={Race}, {nameof(Age)}={Age}, {nameof(NeedToWalk)}={NeedToWalk}, {nameof(Sounds)}={Sounds.ToString()}}}";
+        }
     }
 }
