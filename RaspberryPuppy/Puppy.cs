@@ -12,7 +12,7 @@
         public enum SoundSignal
         {
             Silent = 0,
-            LoudBarking = 1,
+            LoudBarking = 1, 
             QuietBarking = 2
         }
 
