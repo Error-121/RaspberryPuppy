@@ -1,5 +1,5 @@
 # Puppy tings
-# from sense_hat import SenseHat
+#from sense_hat import SenseHat
 from datetime import datetime, timedelta
 import time
 import threading
@@ -10,10 +10,11 @@ import schedule
 # server_port =
 # client_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-# sense = SenseHat()
-# r=0
-# g=0
-# b=0
+#sense = SenseHat()
+r=0
+g=0
+b=0
+#sense.clear(r, g, b)
 
 # Dog Class
 class Dog:
@@ -30,20 +31,23 @@ class Dog:
         self.Sounds = Dog.SoundSignal.silent
 
     def send_signal(self):
+        r = 0
+        b = 0
         self.NeedToWalks = True
         self.Sounds = Dog.SoundSignal.quietBarking
-        # g = 255  #set green LED
+        g = 255  #set green LED
+ #       sense.clear(r, g, b)
         time.sleep(30)  # Wait 30 seconds
         self.Sounds = Dog.SoundSignal.loudBarking
-        # g = 0  # turn off green
-        # r = 255  # set red LED
-
+        g = 0  # turn off green
+        r = 255  # set red LED
+  #      sense.clear(r, g, b)
 
 # Dog Object
 my_dog = Dog(1, "Buddy", "Golden Retriever")
 
 # Schedule the `send_signal` method of the dog
-schedule.every().day.at("07:00:00").do(my_dog.send_signal)
+schedule.every().day.at("12:46:30").do(my_dog.send_signal)
 schedule.every().day.at("16:00:00").do(my_dog.send_signal)
 schedule.every().day.at("21:00:00").do(my_dog.send_signal)
 
