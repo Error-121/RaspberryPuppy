@@ -1,39 +1,76 @@
 ﻿namespace RaspberryPuppy
 {
-	public class Puppy
-	{
+    public class Puppy
+    {
+        public enum SoundSignal
+        {
+            Silent,
+            LoudBarking,
+            QuietBarking
+        }
+
         public int ID { get; set; }
         public string Name { get; set; }
         public string Race { get; set; }
-        public int Age { get; set; }
         public bool NeedToWalk { get; set; }
         public SoundSignal Sounds { get; set; }
-
-        public enum SoundSignal
-        {
-            Silent = 0,
-            LoudBarking = 1, 
-            QuietBarking = 2
-        }
 
         public Puppy()
         {
 
         }
 
-        public Puppy(int id, string name, string race, int age, bool needToWalk, SoundSignal sounds)
+        public Puppy(string name, string race, bool needToWalk, SoundSignal sounds)
         {
-            ID = id;
             Name = name;
             Race = race;
-            Age = age;
             NeedToWalk = needToWalk;
             Sounds = sounds;
         }
 
         public override string ToString()
         {
-            return $"{{{nameof(ID)}={ID}, {nameof(Name)}={Name}, {nameof(Race)}={Race}, {nameof(Age)}={Age}, {nameof(NeedToWalk)}={NeedToWalk}, {nameof(Sounds)}={Sounds.ToString()}}}";
+            return $"{{{nameof(Name)}={Name}, {nameof(Race)}={Race}, {nameof(NeedToWalk)}={NeedToWalk}, {nameof(Sounds)}={Sounds.ToString()}}}";
         }
+
+
+
+
+
+
+        public void ValidateName()
+        {
+            if (string.IsNullOrEmpty(Name))
+            {
+                throw new ArgumentNullException("Name is required");
+            }
+
+            else if (Name.Length < 2 || Name.Length > 50)
+            {
+                throw new ArgumentOutOfRangeException("Name must have at least 2 characters");
+            }
+        }
+
+        public void ValidateRace()
+        {
+            if (string.IsNullOrEmpty(Race))
+            {
+                throw new ArgumentNullException("Race is required");
+            }
+            else if (Race.Length < 2 || Race.Length > 50)
+            {
+                throw new ArgumentOutOfRangeException("Race must be atleast 2 characters");
+            }
+        }
+
+        public void ValidateValidate()
+        {
+            ValidateName();
+            ValidateRace();
+        }
+
+
     }
+
 }
+
