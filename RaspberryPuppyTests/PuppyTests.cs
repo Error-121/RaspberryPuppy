@@ -18,6 +18,8 @@ namespace RaspberryPuppy.Tests
         private readonly Puppy shortNamePuppy = new Puppy("I", "Boxer", false, SoundSignal.LoudBarking);
         private readonly Puppy nullRacePuppy = new Puppy("Bob", null, false, SoundSignal.LoudBarking);
         private readonly Puppy shortRacePuppy = new Puppy("Bob", "M", false, SoundSignal.Silent);
+         private readonly Puppy numberRacePuppy = new Puppy("Bob", "123", false, SoundSignal.Silent);
+          private readonly Puppy numberNamePuppy = new Puppy("123", "M", false, SoundSignal.Silent);
 
         [TestMethod()]
         public void ToStringTest()
@@ -30,24 +32,13 @@ namespace RaspberryPuppy.Tests
         {
             goodPuppy.ValidateName();
             Assert.ThrowsException<ArgumentNullException>((() => nullNamePuppy.ValidateName()));
-            Assert.ThrowsException<ArgumentOutOfRangeException>((() => shortNamePuppy.ValidateName()));
         }
-
         [TestMethod()]
-        public void ValidateRaceTest()
+        public void ValidateLetterName()
         {
-            goodPuppy.ValidateRace();
-            Assert.ThrowsException<ArgumentNullException>((() => nullRacePuppy.ValidateRace()));
-            Assert.ThrowsException<ArgumentOutOfRangeException>((() => shortRacePuppy.ValidateRace()));
+            Assert.ThrowsException<FormatException>((() => numberNamePuppy.ValidateName()));
         }
-
-        [TestMethod()]
-        public void ValidateTest()
-        {
-            goodPuppy.ValidateValidate();
-        }
-
-        [TestMethod()]
+                [TestMethod()]
         [DataRow("aa")]
         [DataRow("aaa")]
         [DataRow("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")]
@@ -58,8 +49,7 @@ namespace RaspberryPuppy.Tests
             var rangePuppy = new Puppy { Name = name, Race = "prut", NeedToWalk = true, Sounds = SoundSignal.Silent };
             rangePuppy.ValidateName();
         }
-
-        [TestMethod()]
+                [TestMethod()]
         [DataRow("a")]
         [DataRow("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")]
 
@@ -68,7 +58,22 @@ namespace RaspberryPuppy.Tests
             var badRangePuppy = new Puppy { Name = name, Race = "hest", NeedToWalk = false, Sounds = SoundSignal.LoudBarking };
             Assert.ThrowsException<ArgumentOutOfRangeException>((() => badRangePuppy.ValidateName()));
         }
+        public void ValidateNameLetters()
+        {
+            Assert.ThrowsException<FormatException>(()=> numberNamePuppy.ValidateName());
+        }
 
+        [TestMethod()]
+        public void ValidateRaceTest()
+        {
+            goodPuppy.ValidateRace();
+            Assert.ThrowsException<ArgumentNullException>((() => nullRacePuppy.ValidateRace()));
+            Assert.ThrowsException<ArgumentOutOfRangeException>((() => shortRacePuppy.ValidateRace()));
+        }
+        public void ValidateRaceLetters()
+        {
+            Assert.ThrowsException<FormatException>(()=> numberRacePuppy.ValidateRace());
+        }
         [TestMethod()]
         [DataRow("aa")]
         [DataRow("aaa")]
@@ -90,5 +95,13 @@ namespace RaspberryPuppy.Tests
             var badRacePuppy = new Puppy { Name = "oluf", Race = race, NeedToWalk = false, Sounds = SoundSignal.LoudBarking };
             Assert.ThrowsException<ArgumentOutOfRangeException>((() => badRacePuppy.ValidateRace()));
         }
+
+        [TestMethod()]
+        public void ValidateTest()
+        {
+            goodPuppy.ValidateValidate();
+        }
+
+   
     }
 }
