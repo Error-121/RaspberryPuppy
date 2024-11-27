@@ -1,44 +1,63 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using RaspberryPuppy;
 
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace RaspberryPuppyAPI.Controllers
 {
-	[Route("RaspbarryPuppy")]
+	[Route("Puppy")]
+
 	[ApiController]
+
 	public class PuppyController : ControllerBase
 	{
-		// GET: api/<PuppyController>
-		[HttpGet]
-		public IEnumerable<string> Get()
-		{
-			return new string[] { "value1", "value2" };
-		}
+        private readonly RaspberryPuppyRepo _repository;
 
-		// GET api/<PuppyController>/5
-		[HttpGet("{id}")]
-		public string Get(int id)
-		{
-			return "value";
-		}
+        public PuppyController(RaspberryPuppyRepo repository)
+        {
+            _repository = repository;
+        }
 
-		// POST api/<PuppyController>
-		[HttpPost]
-		public void Post([FromBody] string value)
-		{
-		}
+        [HttpGet]
+        public IEnumerable<Puppy> GetAll()
+        {
+            return _repository.GetAllPuppies();
+        }
 
-		// PUT api/<PuppyController>/5
-		[HttpPut("{id}")]
-		public void Put(int id, [FromBody] string value)
-		{
-		}
+        // GET api/<PuppyController>/5
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [HttpGet("{id}")]
+        public ActionResult<Puppy> GetById(int id)
+        {
+            Puppy? aPuppy = _repository.GetPuppyByID(id);
+            if (aPuppy == null)
+            {
+                return NotFound();
+            }
+            else
+                return Ok(aPuppy);
+        }
 
-		// DELETE api/<PuppyController>/5
-		[HttpDelete("{id}")]
+        [HttpPost]
+        public Puppy Post([FromBody] Puppy value)
+        {
+            return _repository.AddPuppy(value);
+        }
+
+        // PUT api/<PuppyController>/5
+        [HttpPut("{id}")]
+        public Puppy? Put(int id, [FromBody] Puppy value)
+        {
+            return _repository.Update(id, value);
+        }
+
+        // DELETE api/<PuppyController>/5
+        [HttpDelete("{id}")]
 		public void Delete(int id)
 		{
-		}
+            _repository.Delete(id);
+        }
 	}
 }
