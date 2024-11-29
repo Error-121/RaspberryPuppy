@@ -12,19 +12,17 @@ namespace RaspberryPuppy.Tests
     public class RaspberryPuppyRepoTests
     {
         private readonly RaspberryPuppyRepo _repository = new RaspberryPuppyRepo();
-        private readonly RaspberryPuppyRepo _emptyRepository = new RaspberryPuppyRepo(new List<Puppy>());
 
         [TestMethod()]
         public void GetAllTest()
         {
-            Assert.ThrowsException<ArgumentException>(() => _repository.GetAll());
-
+            Assert.IsNotNull(_repository.GetAll());
         }
 
         [TestMethod()]
         public void GetByIdTest()
         {
-            Assert.ThrowsException<ArgumentException>(() => _repository.GetByID(0));
+            Assert.ThrowsException<ArgumentNullException>(() => _repository.GetByID(0));
             Assert.IsNotNull(_repository.GetByID(5));
         }
 

@@ -11,45 +11,34 @@ namespace RaspberryPuppy
 		private int _nextID = 1;
 		private readonly List<Puppy> _puppies = new List<Puppy>();
 
-        public RaspberryPuppyRepo(List<Puppy> puppies)
-        {
-            _puppies = puppies;
-        }
         public RaspberryPuppyRepo()
 		{
-			_puppies.Add(new Puppy("Buddy", "Golden Retriever", true, Puppy.SoundSignal.LoudBarking));
-			_puppies.Add(new Puppy("Max", "German Shepherd", true, Puppy.SoundSignal.LoudBarking));
-			_puppies.Add(new Puppy("Charlie", "Bulldog", true, Puppy.SoundSignal.LoudBarking));
-			_puppies.Add(new Puppy("Bella", "Poodle", true, Puppy.SoundSignal.QuietBarking));
-			_puppies.Add(new Puppy("Lucy", "Beagle", true, Puppy.SoundSignal.QuietBarking));
-			_puppies.Add(new Puppy("Daisy", "Rottweiler", true, Puppy.SoundSignal.LoudBarking));
-			_puppies.Add(new Puppy("Luna", "Yorkshire Terrier", true, Puppy.SoundSignal.QuietBarking));
-			_puppies.Add(new Puppy("Cooper", "Boxer", true, Puppy.SoundSignal.LoudBarking));
-			_puppies.Add(new Puppy("Rocky", "Dachshund", true, Puppy.SoundSignal.QuietBarking));
-			_puppies.Add(new Puppy("Lola", "Siberian Husky", true, Puppy.SoundSignal.LoudBarking));
+			_puppies.Add(new Puppy() { ID = _nextID++, Name = "Buddy", Race = "Golden Retriever", NeedToWalk = true, Sounds = Puppy.SoundSignal.LoudBarking } );
+			_puppies.Add(new Puppy() { ID = _nextID++, Name = "Max", Race = "German Shepherd", NeedToWalk = true, Sounds = Puppy.SoundSignal.LoudBarking } );
+            _puppies.Add(new Puppy() { ID = _nextID++, Name= "Charlie", Race = "Bulldog", NeedToWalk = true, Sounds = Puppy.SoundSignal.LoudBarking } );
+			_puppies.Add(new Puppy() { ID = _nextID++, Name = "Bella", Race = "Poodle", NeedToWalk = true, Sounds = Puppy.SoundSignal.QuietBarking } );
+			_puppies.Add(new Puppy() { ID = _nextID++, Name = "Lucy", Race = "Beagle", NeedToWalk = true, Sounds = Puppy.SoundSignal.QuietBarking } );
+			_puppies.Add(new Puppy() { ID = _nextID++, Name = "Daisy", Race = "Rottweiler", NeedToWalk = true, Sounds = Puppy.SoundSignal.LoudBarking });
+			_puppies.Add(new Puppy() { ID = _nextID++, Name = "Luna", Race = "Yorkshire Terrier", NeedToWalk = true, Sounds = Puppy.SoundSignal.QuietBarking });
+			_puppies.Add(new Puppy() { ID = _nextID++, Name = "Cooper", Race = "Boxer", NeedToWalk = true, Sounds = Puppy.SoundSignal.LoudBarking });
+			_puppies.Add(new Puppy() { ID = _nextID++, Name = "Rocky", Race = "Dachshund", NeedToWalk = true, Sounds = Puppy.SoundSignal.QuietBarking });
+			_puppies.Add(new Puppy() { ID = _nextID++, Name = "Lola", Race = "Siberian Husky", NeedToWalk = true, Sounds = Puppy.SoundSignal.LoudBarking });
 		}
 
 
         public List<Puppy> GetAll()
 		{
-			if (_puppies.Count == 0)
-            {
-                throw new ArgumentException("No items in list");
-            }
-            else
-            {
-                return new List<Puppy>(_puppies);	
-            }
+            return new List<Puppy>(_puppies);	
 		}
 		
-		public Puppy? GetByID(int id)
+		public Puppy GetByID(int? id)
 		{
-			var equalsId = _puppies.Find(_puppies => _puppies.ID == id);
-			if (equalsId != null)
+			var puppyId = _puppies.Find(puppies => puppies.ID == id);
+			if (puppyId == null)
             {
 				throw new ArgumentNullException("No item exists with this id");
             }
-			return equalsId;
+			return puppyId;
         }
 
 		public Puppy Add(Puppy item)
