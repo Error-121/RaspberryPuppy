@@ -22,7 +22,7 @@ namespace RaspberryPuppyAPI.Controllers
         [HttpGet]
         public IEnumerable<Puppy> GetAll()
         {
-            return _repository.GetAllPuppies();
+            return _repository.GetAll();
         }
 
         // GET api/<PuppyController>/5
@@ -31,7 +31,7 @@ namespace RaspberryPuppyAPI.Controllers
         [HttpGet("{id}")]
         public ActionResult<Puppy> GetById(int id)
         {
-            Puppy? aPuppy = _repository.GetPuppyByID(id);
+            Puppy? aPuppy = _repository.GetByID(id);
             if (aPuppy == null)
             {
                 return NotFound();
@@ -43,7 +43,7 @@ namespace RaspberryPuppyAPI.Controllers
         [HttpPost]
         public Puppy Post([FromBody] Puppy value)
         {
-            return _repository.AddPuppy(value);
+            return _repository.Add(value);
         }
 
         // PUT api/<PuppyController>/5

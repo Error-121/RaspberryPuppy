@@ -18,8 +18,8 @@ namespace RaspberryPuppy.Tests
         private readonly Puppy shortNamePuppy = new Puppy("I", "Boxer", false, SoundSignal.LoudBarking);
         private readonly Puppy nullRacePuppy = new Puppy("Bob", null, false, SoundSignal.LoudBarking);
         private readonly Puppy shortRacePuppy = new Puppy("Bob", "M", false, SoundSignal.Silent);
-         private readonly Puppy numberRacePuppy = new Puppy("Bob", "123", false, SoundSignal.Silent);
-          private readonly Puppy numberNamePuppy = new Puppy("123", "M", false, SoundSignal.Silent);
+        private readonly Puppy numberRacePuppy = new Puppy("Bob", "123", false, SoundSignal.Silent);
+        private readonly Puppy numberNamePuppy = new Puppy("123", "M", false, SoundSignal.Silent);
 
         [TestMethod()]
         public void ToStringTest()
@@ -38,7 +38,7 @@ namespace RaspberryPuppy.Tests
         {
             Assert.ThrowsException<FormatException>((() => numberNamePuppy.ValidateName()));
         }
-                [TestMethod()]
+        [TestMethod()]
         [DataRow("aa")]
         [DataRow("aaa")]
         [DataRow("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")]
@@ -49,7 +49,7 @@ namespace RaspberryPuppy.Tests
             var rangePuppy = new Puppy { Name = name, Race = "prut", NeedToWalk = true, Sounds = SoundSignal.Silent };
             rangePuppy.ValidateName();
         }
-                [TestMethod()]
+        [TestMethod()]
         [DataRow("a")]
         [DataRow("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")]
 
@@ -60,7 +60,7 @@ namespace RaspberryPuppy.Tests
         }
         public void ValidateNameLetters()
         {
-            Assert.ThrowsException<FormatException>(()=> numberNamePuppy.ValidateName());
+            Assert.ThrowsException<FormatException>(() => numberNamePuppy.ValidateName());
         }
 
         [TestMethod()]
@@ -72,7 +72,7 @@ namespace RaspberryPuppy.Tests
         }
         public void ValidateRaceLetters()
         {
-            Assert.ThrowsException<FormatException>(()=> numberRacePuppy.ValidateRace());
+            Assert.ThrowsException<FormatException>(() => numberRacePuppy.ValidateRace());
         }
         [TestMethod()]
         [DataRow("aa")]
@@ -101,7 +101,5 @@ namespace RaspberryPuppy.Tests
         {
             goodPuppy.ValidateValidate();
         }
-
-   
     }
 }

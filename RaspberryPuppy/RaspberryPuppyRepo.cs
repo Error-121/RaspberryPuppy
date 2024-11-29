@@ -11,7 +11,11 @@ namespace RaspberryPuppy
 		private int _nextID = 1;
 		private readonly List<Puppy> _puppies = new List<Puppy>();
 
-		public RaspberryPuppyRepo()
+        public RaspberryPuppyRepo(List<Puppy> puppies)
+        {
+            _puppies = puppies;
+        }
+        public RaspberryPuppyRepo()
 		{
 			_puppies.Add(new Puppy("Buddy", "Golden Retriever", true, Puppy.SoundSignal.LoudBarking));
 			_puppies.Add(new Puppy("Max", "German Shepherd", true, Puppy.SoundSignal.LoudBarking));
@@ -25,32 +29,41 @@ namespace RaspberryPuppy
 			_puppies.Add(new Puppy("Lola", "Siberian Husky", true, Puppy.SoundSignal.LoudBarking));
 		}
 
-		public List<Puppy> GetAllPuppies()
+
+        public List<Puppy> GetAll()
 		{
-			return new List<Puppy>(_puppies);
+			if (_puppies.Count == 0)
+            {
+                throw new ArgumentException("No items in list");
+            }
+            else
+            {
+                return new List<Puppy>(_puppies);	
+            }
 		}
 		
-		public Puppy? GetPuppyByID(int id)
+		public Puppy? GetByID(int id)
 		{
-			return _puppies.Find(_puppies => _puppies.ID == id);
-		}
+			var equalsId = _puppies.Find(_puppies => _puppies.ID == id);
+			if (equalsId != null)
+            {
+				throw new ArgumentNullException("No item exists with this id");
+            }
+			return equalsId;
+        }
 
-		public Puppy AddPuppy(Puppy item)
+		public Puppy Add(Puppy item)
 		{
-			item.ValidateValidate();
+            item.ValidateValidate();
 			item.ID = _nextID++;
-			_puppies.Add(item);
-			return item;
+            _puppies.Add(item);
+            return item;
 		}
 
 		public Puppy? Update(int id, Puppy item)
 		{
 			item.ValidateValidate();
-			Puppy? puppy = GetPuppyByID(id);
-			if (puppy == null)
-			{
-				return null;
-			}
+			Puppy? puppy = GetByID(id);
 			item.Name = puppy.Name;
 			item.Race = puppy.Race;
 			return item;
@@ -58,11 +71,7 @@ namespace RaspberryPuppy
 
 		public Puppy? Delete(int id)
 		{
-			Puppy? puppy = GetPuppyByID(id);
-			if (puppy == null)
-			{
-				return null;
-			}
+			Puppy? puppy = GetByID(id);
 			_puppies.Remove(puppy);
 			return puppy;
 		}
