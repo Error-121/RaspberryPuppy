@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <Reference Include="RaspberryPuppy">
-      <HintPath>..\..\RaspberryPuppy\bin\Debug\net6.0\RaspberryPuppy.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\source\repos\RaspberryPuppy\.github\workflows\RaspberryPuppy\bin\Debug\net6.0\RaspberryPuppy.dll</HintPath>
     </Reference>
   </ItemGroup>
 
