@@ -1,4 +1,6 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.RegularExpressions;
 
 namespace RaspberryPuppy
 {
@@ -11,11 +13,19 @@ namespace RaspberryPuppy
             QuietBarking
         }
 
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ID { get; set; }
-        public string Name { get; set; }
-        public string Race { get; set; }
-        public bool NeedToWalk { get; set; }
-        public SoundSignal Sounds { get; set; }
+        [Required]
+		[StringLength(50, MinimumLength = 2)]
+		public string Name { get; set; }
+		[Required]
+		[StringLength(50, MinimumLength = 2)]
+		public string Race { get; set; }
+		[Required]
+		public bool NeedToWalk { get; set; }
+		[Required]
+		public SoundSignal Sounds { get; set; }
 
         public Puppy()
         {

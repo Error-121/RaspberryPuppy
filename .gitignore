@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/.github/workflows/RaspberryPuppyAPI202412021142491.yml
+/RaspberryPuppyAPI/RaspberryPuppyAPI/obj/Debug/net6.0/RaspberryPuppyAPI.AssemblyInfoInputs.cache
