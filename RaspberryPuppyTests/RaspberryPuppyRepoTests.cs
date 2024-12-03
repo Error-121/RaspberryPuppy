@@ -37,7 +37,11 @@ namespace RaspberryPuppy.Tests
         [TestMethod()]
         public void UpdateTest()
         {
-            
+            var Puppy = _repository.GetByID(8);
+            Puppy.Name = "Messi";
+            Puppy.Race = "Akita";
+            Assert.AreEqual("Messi", Puppy.Name);
+            Assert.AreEqual("Akita", Puppy.Race);
         }
 
         [TestMethod()]
