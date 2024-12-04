@@ -14,7 +14,7 @@ namespace RaspberryPuppy
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
         [Required]
 		[StringLength(50, MinimumLength = 2)]

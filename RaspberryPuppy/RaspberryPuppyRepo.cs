@@ -10,14 +10,18 @@ namespace RaspberryPuppy
 	public class RaspberryPuppyRepo
 	{
 		private int _nextID = 1;
-		private readonly PuppyDbContext _context;
-		private readonly List<Puppy> _puppies = new List<Puppy>();
-
-		public RaspberryPuppyRepo()
+		private PuppyDbContext _context;
+		private List<Puppy> _puppies = new List<Puppy>();
+		List<Puppy> _puppyMock = Mocking.GetAllPup();
+        public RaspberryPuppyRepo()
 		{
 			_context = new PuppyDbContext();
 			_context.Database.EnsureCreated();
-		}
+			foreach (var puppy in _puppyMock)
+            {
+                _context.Puppies.Add(puppy);
+            }
+        }
 
 		//public RaspberryPuppyRepo()
 		//{
@@ -38,7 +42,6 @@ namespace RaspberryPuppy
 		{
 			//before simply server
 			//return new List<Puppy>(_puppies);
-
 			return _context.Puppies.ToList();
 		}
 		

@@ -46,7 +46,7 @@ namespace RaspberryPuppyAPI.Controllers
             return _repository.Add(value);
         }
 
-        // PUT api/<PuppyController>/5
+        // PUT api/<PuppyController>/
         [HttpPut("{id}")]
         public Puppy? Put(int id, [FromBody] Puppy value)
         {
