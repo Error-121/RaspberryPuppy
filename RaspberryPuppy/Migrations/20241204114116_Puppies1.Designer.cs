@@ -11,8 +11,8 @@ using RaspberryPuppy.EFDbContext;
 namespace RaspberryPuppy.Migrations
 {
     [DbContext(typeof(PuppyDbContext))]
-    [Migration("20241203182222_PuppySeed")]
-    partial class PuppySeed
+    [Migration("20241204114116_Puppies1")]
+    partial class Puppies1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

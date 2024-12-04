@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RaspberryPuppy;
+using RaspberryPuppy.EFDbContext;
 
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -12,10 +13,13 @@ namespace RaspberryPuppyAPI.Controllers
 
 	public class PuppyController : ControllerBase
 	{
+        private readonly PuppyDbContext _context;
         private readonly RaspberryPuppyRepo _repository;
 
-        public PuppyController(RaspberryPuppyRepo repository)
+
+        public PuppyController(PuppyDbContext context, RaspberryPuppyRepo repository)
         {
+            _context = context;
             _repository = repository;
         }
 
