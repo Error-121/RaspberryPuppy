@@ -1,10 +1,10 @@
-name: Build and deploy .NET Core application to Web App RaspberryPuppyAPI20241204134018
+name: Build and deploy .NET Core application to Web App RaspberryPuppyRESTAPI
 on:
   push:
     branches:
     - UserStory3
 env:
-  AZURE_WEBAPP_NAME: RaspberryPuppyAPI20241204134018
+  AZURE_WEBAPP_NAME: RaspberryPuppyRESTAPI
   AZURE_WEBAPP_PACKAGE_PATH: RaspberryPuppyAPI\published
   CONFIGURATION: Release
   DOTNET_CORE_VERSION: 6.0.x
@@ -44,5 +44,5 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
-        publish-profile: ${{ secrets.RaspberryPuppyAPI20241204134018_5718 }}
+        publish-profile: ${{ secrets.RaspberryPuppyRESTAPI_FFB2 }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
