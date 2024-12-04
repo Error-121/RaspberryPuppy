@@ -18,10 +18,11 @@ namespace RaspberryPuppy
 			_context = new PuppyDbContext();
 			_context.Database.EnsureCreated();
 			foreach (var puppy in _puppyMock)
-            {
-                _context.Puppies.Add(puppy);
-            }
-        }
+			{
+				_context.Puppies.Add(puppy);
+			}
+			_context.SaveChanges();
+		}
 
 		//public RaspberryPuppyRepo()
 		//{
@@ -71,7 +72,8 @@ namespace RaspberryPuppy
 			//         _puppies.Add(item);
 			//         return item;
 			item.ValidateValidate();
-			_context.Puppies.Add(item);
+			item.ID = 1;
+            _context.Puppies.Add(item);
 			_context.SaveChanges();
 			return item;
 		}

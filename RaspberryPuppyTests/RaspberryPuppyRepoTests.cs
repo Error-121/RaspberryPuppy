@@ -53,8 +53,18 @@ namespace RaspberryPuppy.Tests
         public void testMock()
         {
             List<Puppy> puppyListTest = Mocking.GetAllPup();
-            Assert.AreEqual(1, puppyListTest.Count);
-            Assert.AreEqual("Fido", puppyListTest[0].Name);
+            foreach (var puppy in puppyListTest)
+            {
+                Assert.AreEqual("Fido", puppy.Name);
+                Assert.AreEqual("Shnautzer", puppy.Race);
+                Assert.AreEqual(false, puppy.NeedToWalk);
+                Assert.AreEqual(Puppy.SoundSignal.Silent, puppy.Sounds);
+            }
+            //Assert.AreEqual(1, puppyListTest.Count);
+            //Assert.AreEqual("Fido", puppyListTest[0].Name);
+            //Assert.AreEqual("Shnautzer", puppyListTest[1].Race);
+            //Assert.AreEqual(false, puppyListTest[2].NeedToWalk);
+            //Assert.AreEqual(Puppy.SoundSignal.Silent, puppyListTest[3].Sounds);
         }
 
     }
