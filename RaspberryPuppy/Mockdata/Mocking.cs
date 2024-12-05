@@ -8,12 +8,12 @@ namespace RaspberryPuppy
 {
     public class Mocking
     {
-        private static List<Puppy> _puppiesss = new List<Puppy>()
+        private static List<Personality> _puppiesss = new List<Personality>()
         {
-            new Puppy("Fido", "Shnautzer", false, Puppy.SoundSignal.Silent)
+            new Personality("Fido", "Shnautzer", false, Personality.SoundSignal.Silent)
         };
 
-        public static List<Puppy> GetAllPup()
+        public static List<Personality> GetAllPup()
         {
             return _puppiesss;
         }
