@@ -11,10 +11,10 @@ namespace RaspberryPuppy.EFDbContext
 	{
 		protected override void OnConfiguring(DbContextOptionsBuilder options)
 		{
-			//options.UseSqlServer(@"Data Source=mssql9.unoeuro.com;Initial Catalog=error121_dk_db_devsquardv2;User ID=error121_dk;Password=hk9ynDAed52brftzpcG3;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False");
-			options.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=RaspPuppyDB; Integrated Security=True; Connect Timeout=30; Encrypt=False");
+			options.UseSqlServer(@"Data Source=mssql9.unoeuro.com;Initial Catalog=error121_dk_db_devsquardv2;User ID=error121_dk;Password=hk9ynDAed52brftzpcG3;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False");
+			//options.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=RaspPuppyDB; Integrated Security=True; Connect Timeout=30; Encrypt=False");
 		}
 
-		public DbSet<Puppy> Puppies { get; set; }
+		public DbSet<Personality> Puppies { get; set; }
 	}
 }

@@ -24,7 +24,10 @@ namespace RaspberryPuppy.Migrations
             modelBuilder.Entity("RaspberryPuppy.Puppy", b =>
                 {
                     b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
                     b.Property<string>("Name")
                         .IsRequired()

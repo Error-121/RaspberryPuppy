@@ -11,8 +11,8 @@ using RaspberryPuppy.EFDbContext;
 namespace RaspberryPuppy.Migrations
 {
     [DbContext(typeof(PuppyDbContext))]
-    [Migration("20241202131348_PuppyLip2")]
-    partial class PuppyLip2
+    [Migration("20241204114116_Puppies1")]
+    partial class Puppies1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,7 +27,10 @@ namespace RaspberryPuppy.Migrations
             modelBuilder.Entity("RaspberryPuppy.Puppy", b =>
                 {
                     b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
                     b.Property<string>("Name")
                         .IsRequired()

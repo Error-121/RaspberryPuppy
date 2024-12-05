@@ -6,11 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RaspberryPuppy.Services
+namespace RaspberryPuppy
 {
 	public class DBservise
 	{
-		public async Task<List<Puppy>> GetPuppies()
+		public async Task<List<Personality>> GetPuppies()
 		{
 			using (var context = new PuppyDbContext())
 			{
@@ -18,7 +18,7 @@ namespace RaspberryPuppy.Services
 			}
 		}
 
-		public async Task AddPuppy(Puppy puppy)
+		public async Task AddPuppy(Personality puppy)
 		{
 			using (var context = new PuppyDbContext())
 			{
@@ -27,11 +27,11 @@ namespace RaspberryPuppy.Services
 			}
 		}
 
-		public async Task SavePuppies(List<Puppy> puppies)
+		public async Task SavePuppies(List<Personality> puppies)
 		{
 			using (var context = new PuppyDbContext())
 			{
-				foreach (Puppy puppy in puppies)
+				foreach (Personality puppy in puppies)
 				{
 					context.Puppies.Add(puppy);
 					context.SaveChanges();
