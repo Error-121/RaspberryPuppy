@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RaspberryPuppyAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6ba3911996af6824b086283aab56cd33f67c4ef1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2d498d8d0b1d24d08189b27bd5d87266553a0eeb")]
 [assembly: System.Reflection.AssemblyProductAttribute("RaspberryPuppyAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RaspberryPuppyAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
