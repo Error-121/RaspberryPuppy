@@ -15,6 +15,7 @@ namespace RaspberryPuppy.EFDbContext
 			//options.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=RaspPuppyDB; Integrated Security=True; Connect Timeout=30; Encrypt=False");
 		}
 
-		public DbSet<Puppy> Puppies { get; set; }
-	}
+		public DbSet<Personality> Personalities { get; set; }
+        public DbSet<TripData> Trips { get; set; }
+    }
 }
