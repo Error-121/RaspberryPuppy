@@ -19,7 +19,24 @@ namespace RaspberryPuppy
 			_context = new PuppyDbContext();
 			_context.Database.EnsureCreated();
 			_dbSet = _context.Set<T>();
-		}
+
+            // Add mock data if the database is empty
+            if (!_dbSet.Any())
+            {
+                if (typeof(T) == typeof(Personality))
+                {
+                    var mockPN = Mocking.GetAllPersonality() as List<T>;
+                    _dbSet.AddRange(mockPN);
+                    _context.SaveChanges();
+                }
+                if (typeof(T) == typeof(TripData))
+                {
+                    var mockTrips = Mocking.GetAllTrips() as List<T>;
+                    _dbSet.AddRange(mockTrips);
+                    _context.SaveChanges();
+                }
+            }
+        }
 
 		public List<T> GetAll()
 		{

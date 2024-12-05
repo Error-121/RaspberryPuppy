@@ -14,12 +14,9 @@ namespace RaspberryPuppy
         {
             
         }
-        public TripData(int id, int tagNr, string? location, string? humidity, int temperature, int timeOutside)
+        public TripData(string? location, decimal temperature, int timeOutside)
         {
-            Id = id;
-            TagNr = tagNr;
             Location = location;
-            Humidity = humidity;
             Temperature = temperature;
             TimeOutside = timeOutside;
         }
@@ -35,9 +32,7 @@ namespace RaspberryPuppy
         [StringLength(50, MinimumLength = 2)]
         public string? Location { get; set; }
         [Required]
-        public string? Humidity { get; set; }
-        [Required]
-        public int Temperature { get; set; }
+        public decimal Temperature { get; set; }
         [Required]
         public int TimeOutside { get; set; }
     }

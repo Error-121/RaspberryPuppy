@@ -8,14 +8,24 @@ namespace RaspberryPuppy
 {
     public class Mocking
     {
-        private static List<Personality> _puppiesss = new List<Personality>()
+        private static List<Personality> _MockPersonality = new List<Personality>()
         {
-            new Personality("Fido", "Shnautzer", false, Personality.SoundSignal.Silent)
+            new Personality(4020, "MessiRonaldo", "Beagle", 10, "Mellemfornøjet", "Male")
         };
 
-        public static List<Personality> GetAllPup()
+        private static List<TripData> _MockTrip = new List<TripData>()
         {
-            return _puppiesss;
+            new TripData("Roskilde", 3, 20)
+        };
+
+        public static List<Personality> GetAllPersonality()
+        {
+            return _MockPersonality;
+        }
+
+        public static List<TripData> GetAllTrips()
+        {
+            return _MockTrip;
         }
     }
 }

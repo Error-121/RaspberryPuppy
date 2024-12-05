@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddSingleton<RaspberryPuppyRepo>(new RaspberryPuppyRepo());
+builder.Services.AddSingleton<>(new RaspberryPuppyRepo());
 
 builder.Services.AddControllers();
 

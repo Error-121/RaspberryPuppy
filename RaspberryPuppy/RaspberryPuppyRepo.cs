@@ -13,34 +13,29 @@ namespace RaspberryPuppy
 		private PuppyDbContext _context;
 		private List<Personality> _puppies = new List<Personality>();
 		public List<RaspberryPuppyRepo> _puppyRepo = new List<RaspberryPuppyRepo>();
-		List<Personality> _puppyMock = Mocking.GetAllPup();
-		public RaspberryPuppyRepo()
+        List<Personality> _MockPN = Mocking.GetAllPersonality();
+		List<TripData> _MockTD = Mocking.GetAllTrips();
+        public RaspberryPuppyRepo()
 		{
-			_context = new PuppyDbContext();
-			_context.Database.EnsureCreated();
-			//	foreach (var puppy in _puppyMock)
-			//	{
-			//		_context.Puppies.Add(puppy);
-			//	}
-			//          _context.SaveChanges();
-			//}
 
-			//public RaspberryPuppyRepo()
-			//{
-			//	_puppies.Add(new Puppy() { ID = _nextID++, Name = "Buddy", Race = "Golden Retriever", NeedToWalk = true, Sounds = Puppy.SoundSignal.LoudBarking });
-			//	_puppies.Add(new Puppy() { ID = _nextID++, Name = "Max", Race = "German Shepherd", NeedToWalk = true, Sounds = Puppy.SoundSignal.LoudBarking });
-			//	_puppies.Add(new Puppy() { ID = _nextID++, Name = "Charlie", Race = "Bulldog", NeedToWalk = true, Sounds = Puppy.SoundSignal.LoudBarking });
-			//	_puppies.Add(new Puppy() { ID = _nextID++, Name = "Bella", Race = "Poodle", NeedToWalk = true, Sounds = Puppy.SoundSignal.QuietBarking });
-			//	_puppies.Add(new Puppy() { ID = _nextID++, Name = "Lucy", Race = "Beagle", NeedToWalk = true, Sounds = Puppy.SoundSignal.QuietBarking });
-			//	_puppies.Add(new Puppy() { ID = _nextID++, Name = "Daisy", Race = "Rottweiler", NeedToWalk = true, Sounds = Puppy.SoundSignal.LoudBarking });
-			//	_puppies.Add(new Puppy() { ID = _nextID++, Name = "Luna", Race = "Yorkshire Terrier", NeedToWalk = true, Sounds = Puppy.SoundSignal.QuietBarking });
-			//	_puppies.Add(new Puppy() { ID = _nextID++, Name = "Cooper", Race = "Boxer", NeedToWalk = true, Sounds = Puppy.SoundSignal.LoudBarking });
-			//	_puppies.Add(new Puppy() { ID = _nextID++, Name = "Rocky", Race = "Dachshund", NeedToWalk = true, Sounds = Puppy.SoundSignal.QuietBarking });
-			//	_puppies.Add(new Puppy() { ID = _nextID++, Name = "Lola", Race = "Siberian Husky", NeedToWalk = true, Sounds = Puppy.SoundSignal.LoudBarking });
-			//}
+		}
+
+		//public RaspberryPuppyRepo()
+		//{
+		//	_puppies.Add(new Puppy() { ID = _nextID++, Name = "Buddy", Race = "Golden Retriever", NeedToWalk = true, Sounds = Puppy.SoundSignal.LoudBarking });
+		//	_puppies.Add(new Puppy() { ID = _nextID++, Name = "Max", Race = "German Shepherd", NeedToWalk = true, Sounds = Puppy.SoundSignal.LoudBarking });
+		//	_puppies.Add(new Puppy() { ID = _nextID++, Name = "Charlie", Race = "Bulldog", NeedToWalk = true, Sounds = Puppy.SoundSignal.LoudBarking });
+		//	_puppies.Add(new Puppy() { ID = _nextID++, Name = "Bella", Race = "Poodle", NeedToWalk = true, Sounds = Puppy.SoundSignal.QuietBarking });
+		//	_puppies.Add(new Puppy() { ID = _nextID++, Name = "Lucy", Race = "Beagle", NeedToWalk = true, Sounds = Puppy.SoundSignal.QuietBarking });
+		//	_puppies.Add(new Puppy() { ID = _nextID++, Name = "Daisy", Race = "Rottweiler", NeedToWalk = true, Sounds = Puppy.SoundSignal.LoudBarking });
+		//	_puppies.Add(new Puppy() { ID = _nextID++, Name = "Luna", Race = "Yorkshire Terrier", NeedToWalk = true, Sounds = Puppy.SoundSignal.QuietBarking });
+		//	_puppies.Add(new Puppy() { ID = _nextID++, Name = "Cooper", Race = "Boxer", NeedToWalk = true, Sounds = Puppy.SoundSignal.LoudBarking });
+		//	_puppies.Add(new Puppy() { ID = _nextID++, Name = "Rocky", Race = "Dachshund", NeedToWalk = true, Sounds = Puppy.SoundSignal.QuietBarking });
+		//	_puppies.Add(new Puppy() { ID = _nextID++, Name = "Lola", Race = "Siberian Husky", NeedToWalk = true, Sounds = Puppy.SoundSignal.LoudBarking });
+		//}
 
 
-			List<Personality> GetAll()
+		List<Personality> GetAll()
 			{
 				//before simply server
 				//return new List<Puppy>(_puppies);
@@ -74,7 +69,7 @@ namespace RaspberryPuppy
 				//         return item;
 				item.ValidateValidate();
 				item.ID = 1;
-				_context.Puppies.Add(item);
+				_context.Personalities.Add(item);
 				_context.SaveChanges();
 				return item;
 			}
