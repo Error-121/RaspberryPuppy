@@ -26,11 +26,13 @@ namespace RaspberryPuppy
 
         [Key]
         [Required]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         [Required]
         [ForeignKey("Personality")]
         public int TagNr { get; set; }
         [Required]
+        [StringLength(50, MinimumLength = 2)]
         public string? Location { get; set; }
         [Required]
         public string? Humidity { get; set; }
