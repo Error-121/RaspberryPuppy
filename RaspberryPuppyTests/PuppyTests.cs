@@ -6,20 +6,20 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using static RaspberryPuppy.Puppy;
+using static RaspberryPuppy.Personality;
 
 namespace RaspberryPuppy.Tests
 {
     [TestClass()]
     public class PuppyTests
     {
-        private readonly Puppy goodPuppy = new Puppy("Fido", "Labrador", true, SoundSignal.QuietBarking);
-        private readonly Puppy nullNamePuppy = new Puppy(null, "Poddle", false, SoundSignal.QuietBarking);
-        private readonly Puppy shortNamePuppy = new Puppy("I", "Boxer", false, SoundSignal.LoudBarking);
-        private readonly Puppy nullRacePuppy = new Puppy("Bob", null, false, SoundSignal.LoudBarking);
-        private readonly Puppy shortRacePuppy = new Puppy("Bob", "M", false, SoundSignal.Silent);
-        private readonly Puppy numberRacePuppy = new Puppy("Bob", "123", false, SoundSignal.Silent);
-        private readonly Puppy numberNamePuppy = new Puppy("123", "M", false, SoundSignal.Silent);
+        private readonly Personality goodPuppy = new Personality("Fido", "Labrador", true, SoundSignal.QuietBarking);
+        private readonly Personality nullNamePuppy = new Personality(null, "Poddle", false, SoundSignal.QuietBarking);
+        private readonly Personality shortNamePuppy = new Personality("I", "Boxer", false, SoundSignal.LoudBarking);
+        private readonly Personality nullRacePuppy = new Personality("Bob", null, false, SoundSignal.LoudBarking);
+        private readonly Personality shortRacePuppy = new Personality("Bob", "M", false, SoundSignal.Silent);
+        private readonly Personality numberRacePuppy = new Personality("Bob", "123", false, SoundSignal.Silent);
+        private readonly Personality numberNamePuppy = new Personality("123", "M", false, SoundSignal.Silent);
 
         [TestMethod()]
         public void ToStringTest()
@@ -46,7 +46,7 @@ namespace RaspberryPuppy.Tests
 
         public void ValidateNameInRange(string name)
         {
-            var rangePuppy = new Puppy { Name = name, Race = "prut", NeedToWalk = true, Sounds = SoundSignal.Silent };
+            var rangePuppy = new Personality { Name = name, Race = "prut", NeedToWalk = true, Sounds = SoundSignal.Silent };
             rangePuppy.ValidateName();
         }
         [TestMethod()]
@@ -55,7 +55,7 @@ namespace RaspberryPuppy.Tests
 
         public void ValidateNameNegativeInRange(string name)
         {
-            var badRangePuppy = new Puppy { Name = name, Race = "hest", NeedToWalk = false, Sounds = SoundSignal.LoudBarking };
+            var badRangePuppy = new Personality { Name = name, Race = "hest", NeedToWalk = false, Sounds = SoundSignal.LoudBarking };
             Assert.ThrowsException<ArgumentOutOfRangeException>((() => badRangePuppy.ValidateName()));
         }
         public void ValidateNameLetters()
@@ -82,7 +82,7 @@ namespace RaspberryPuppy.Tests
 
         public void ValidateRaceInRange(string race)
         {
-            var rangeracePuppy = new Puppy { Name = "Bobeline", Race = race, NeedToWalk = true, Sounds = SoundSignal.Silent };
+            var rangeracePuppy = new Personality { Name = "Bobeline", Race = race, NeedToWalk = true, Sounds = SoundSignal.Silent };
             rangeracePuppy.ValidateRace();
         }
 
@@ -92,7 +92,7 @@ namespace RaspberryPuppy.Tests
 
         public void ValidateRaceNegativeInRange(string race)
         {
-            var badRacePuppy = new Puppy { Name = "oluf", Race = race, NeedToWalk = false, Sounds = SoundSignal.LoudBarking };
+            var badRacePuppy = new Personality { Name = "oluf", Race = race, NeedToWalk = false, Sounds = SoundSignal.LoudBarking };
             Assert.ThrowsException<ArgumentOutOfRangeException>((() => badRacePuppy.ValidateRace()));
         }
 
