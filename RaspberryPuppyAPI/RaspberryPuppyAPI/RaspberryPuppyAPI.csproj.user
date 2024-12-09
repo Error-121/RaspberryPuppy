@@ -4,9 +4,8 @@
     <Controller_SelectedScaffolderID>ApiControllerWithActionsScaffolder</Controller_SelectedScaffolderID>
     <Controller_SelectedScaffolderCategoryPath>root/Common/Api</Controller_SelectedScaffolderCategoryPath>
     <ActiveDebugProfile>IIS Express</ActiveDebugProfile>
-    <NameOfLastUsedPublishProfile>C:\Users\zalwa\Source\Repos\Error-121\RaspberryPuppy\.github\workflows\RaspberryPuppyRESTAPI.yml</NameOfLastUsedPublishProfile>
-    <ActiveDebugProfile>RaspberryPuppyAPI</ActiveDebugProfile>
-    <NameOfLastUsedPublishProfile>C:\Users\zalwa\Source\Repos\Error-121\RaspberryPuppy\.github\workflows\RaspberryPuppyAPI20241204134018.yml</NameOfLastUsedPublishProfile>
+    <ActiveDebugProfile>IIS Express</ActiveDebugProfile>
+    <NameOfLastUsedPublishProfile>C:\Users\Bruger\Source\Repos\Error-121\RaspberryPuppy\.github\workflows\RaspberryPuppyAPI20241209122728.yml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
