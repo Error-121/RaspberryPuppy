@@ -1,38 +1,46 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.RegularExpressions;
 
 namespace RaspberryPuppy
 {
-    public class Puppy
+    public class Personality
     {
-        public enum SoundSignal
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int TagNr { get; set; }
+        [Required]
+		[StringLength(50, MinimumLength = 2)]
+		public string Name { get; set; }
+        [Required]
+        public string Gender { get; set; }
+        [Required]
+        public int Age { get; set; }
+        [Required]
+		[StringLength(50, MinimumLength = 2)]
+		public string Race { get; set; }
+        [Required]
+        public string Temperament { get; set; }
+
+
+        public Personality()
         {
-            Silent,
-            LoudBarking,
-            QuietBarking
+
         }
 
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public string Race { get; set; }
-        public bool NeedToWalk { get; set; }
-        public SoundSignal Sounds { get; set; }
-
-        public Puppy()
+        public Personality(int tagNr, string name, string race, int age, string temperament, string gender)
         {
-
-        }
-
-        public Puppy(string name, string race, bool needToWalk, SoundSignal sounds)
-        {
+            TagNr = tagNr;
             Name = name;
+            Gender = gender;
+            Age = age;
             Race = race;
-            NeedToWalk = needToWalk;
-            Sounds = sounds;
+            Temperament = temperament;
         }
 
         public override string ToString()
         {
-            return $"{{{nameof(Name)}={Name}, {nameof(Race)}={Race}, {nameof(NeedToWalk)}={NeedToWalk}, {nameof(Sounds)}={Sounds.ToString()}}}";
+            return $"{{{nameof(TagNr)}={TagNr}, {nameof(Name)}={Name}, {nameof(Gender)}={Gender}, {nameof(Age)}={Age}, {nameof(Race)}={Race}, {nameof(Name)}={Name.ToString()}}}";
         }
 
         public void ValidateName()
