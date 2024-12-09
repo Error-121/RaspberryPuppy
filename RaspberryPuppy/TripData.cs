@@ -14,7 +14,7 @@ namespace RaspberryPuppy
         {
             
         }
-        public TripData(string? location, decimal temperature, int timeOutside)
+        public TripData(string? location, int temperature, int timeOutside)
         {
             Location = location;
             Temperature = temperature;
@@ -26,14 +26,14 @@ namespace RaspberryPuppy
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         [Required]
-        [ForeignKey("Personality")]
         public int TagNr { get; set; }
         [Required]
         [StringLength(50, MinimumLength = 2)]
         public string? Location { get; set; }
         [Required]
-        public decimal Temperature { get; set; }
+        public int Temperature { get; set; }
         [Required]
         public int TimeOutside { get; set; }
+        public Personality Personality { get; set; }
     }
 }
