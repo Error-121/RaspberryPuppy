@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Bruger\\.nuget\\packages\\": {}
+    "C:\\Users\\zalwa\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Bruger\\source\\repos\\Error-121\\RaspberryPuppy\\RaspberryPuppyAPI\\RaspberryPuppyAPI\\RaspberryPuppyAPI.csproj",
+      "projectUniqueName": "C:\\Users\\zalwa\\Source\\Repos\\Error-121\\RaspberryPuppy\\RaspberryPuppyAPI\\RaspberryPuppyAPI\\RaspberryPuppyAPI.csproj",
       "projectName": "RaspberryPuppyAPI",
-      "projectPath": "C:\\Users\\Bruger\\source\\repos\\Error-121\\RaspberryPuppy\\RaspberryPuppyAPI\\RaspberryPuppyAPI\\RaspberryPuppyAPI.csproj",
-      "packagesPath": "C:\\Users\\Bruger\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Bruger\\source\\repos\\Error-121\\RaspberryPuppy\\RaspberryPuppyAPI\\RaspberryPuppyAPI\\obj\\",
+      "projectPath": "C:\\Users\\zalwa\\Source\\Repos\\Error-121\\RaspberryPuppy\\RaspberryPuppyAPI\\RaspberryPuppyAPI\\RaspberryPuppyAPI.csproj",
+      "packagesPath": "C:\\Users\\zalwa\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\zalwa\\Source\\Repos\\Error-121\\RaspberryPuppy\\RaspberryPuppyAPI\\RaspberryPuppyAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Bruger\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\zalwa\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -69,7 +69,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
       }
     }
   }
