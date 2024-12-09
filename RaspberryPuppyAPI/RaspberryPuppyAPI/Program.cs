@@ -5,13 +5,13 @@ using Microsoft.AspNetCore.Mvc;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
-builder.Services.AddSingleton<>(new RaspberryPuppyRepo());
+builder.Services.AddDbContext<PuppyDbContext>();
+builder.Services.AddTransient<GenericPuppyRepo<Personality>, GenericPuppyRepo<Personality>>();
+builder.Services.AddTransient<GenericPuppyRepo<TripData>, GenericPuppyRepo<TripData>>();
 
 builder.Services.AddControllers();
 
 //var connectionString = builder.Configuration.GetConnectionString("RaspberryPuppyDB");
-builder.Services.AddDbContext<PuppyDbContext>();
 
 var app = builder.Build();
 

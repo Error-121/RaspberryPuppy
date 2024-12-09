@@ -7,7 +7,7 @@ namespace RaspberryPuppy
     public class Personality
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int TagNr { get; set; }
         [Required]
 		[StringLength(50, MinimumLength = 2)]
