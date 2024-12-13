@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hundetracker</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .card {
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar {
+      height: 100vh;
+      background-color: #6f42c1;
+      color: white;
+      padding-top: 20px;
+    }
+
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .sidebar a:hover {
+      color: #ddd;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-sm bg-info navbar-dark">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">Hjem</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="Dashboard.html">Vis Resultater</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Om RaspberryPuppy</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Hjælp</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="d-flex">
+    
+   <div class="sidebar p-3">
+     <h2 class="text-center">Hundetracker</h2>
+     <ul class="nav flex-column mt-4">
+       <li class="nav-item mb-2">
+         <a href="#" class="nav-link">Dashboard</a>
+       </li>
+       <li class="nav-item mb-2">
+         <a href="#" class="nav-link">Statistik</a>
+       </li>
+       <li class="nav-item mb-2">
+         <a href="#" class="nav-link">Indstillinger</a>
+       </li>
+     </ul>
+    </div>
+   
+
+  <div id="app" class="container mt-4">
+
+    <div class="text-center">
+    <h1>Hundetracker </h1>
+    </div>
+
+    <!-- Flex container -->
+    <div class="row">
+      <div class="col-md-6">
+    <!-- Fejlmeddelelse -->
+    <p v-if="error" style="color: red;">{{ error }}</p>
+
+    <!-- Personality Data -->
+    <h2>Personality</h2>
+    <div v-if="personality ">
+      <p><strong>Tag Nr:</strong> {{ personality.tagNr }}</p>
+      <p><strong>Navn:</strong> {{ personality.name }}</p>
+      <p><strong>Køn:</strong> {{ personality.gender }}</p>
+      <p><strong>Alder:</strong> {{ personality.age }}</p>
+      <p><strong>Race:</strong> {{ personality.race }}</p>
+      <p><strong>Temperament:</strong> {{ personality.temperament }}</p>
+
+      
+    </div>
+    <div v-else>
+      <p>Indlæser data...</p>
+    </div>
+  </div>
+
+
+    <!-- Trip Data -->
+     <div class="col-md-6">
+    <h2>Trip</h2>
+    <div v-if="trip">
+      <p><strong>ID:</strong> {{ trip.id }}</p>
+      <p><strong>Tag Nr:</strong> {{ trip.tagNr }}</p>
+      <p><strong>Lokation:</strong> {{ trip.location }}</p>
+      <p><strong>Temperatur:</strong> {{ trip.temperature }}°C</p>
+      <p><strong>Udetid:</strong> {{ trip.timeOutside }} minutter</p>
+    </div>
+    <div v-else>
+      <p>Indlæser trip-data...</p>
+    </div>
+    </div>
+  </div>
+  
+  
+
+    <div class="row mt-5">
+      <div class="col-md-3">
+        <div class="card bg-primary text-white">
+          <div class="card-body">
+            <h5>Distance Gået</h5>
+            <h3>{{ totalDistance }} km</h3>
+            <p class="mb-0">Denne måned</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card bg-success text-white">
+          <div class="card-body">
+            <h5>Godkendte Gåture</h5>
+            <h3>{{ approvedWalks }}</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card bg-danger text-white">
+          <div class="card-body">
+            <h5>Ikke Godkendte</h5>
+            <h3>{{ failedWalks }}</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card bg-warning text-white">
+          <div class="card-body">
+            <h5>Gennemsnitlig Rang</h5>
+            <h3>{{ averageRank }}%</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="d-flex">
+       Sidebar
+      <div class="sidebar p-3">
+        <h2 class="text-center">Hundetracker</h2>
+        <ul class="nav flex-column mt-4">
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link">Dashboard</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link">Statistik</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link">Indstillinger</a>
+          </li>
+        </ul>
+      </div>
+</div> -->
+  
+
+  <script src="Dashboard.js"></script>
+</body>
+
+</html>
